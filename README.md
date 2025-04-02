@@ -24,7 +24,7 @@ A command-line interface (CLI) application for managing auction items. Built wit
 
    ```bash
    git clone <repository-url>
-   cd mission05
+   cd AuctionItemDB_CLI
    ```
 
 2. Install dependencies:
@@ -115,7 +115,7 @@ This will populate the database with sample auction items.
 ## Project Structure
 
 ```
-mission05/
+AuctionItemDB_CLI/
 ├── src/
 │   ├── commands.js          # Main CLI entry point
 │   ├── config/
