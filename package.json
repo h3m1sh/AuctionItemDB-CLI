@@ -1,0 +1,23 @@
+{
+  "name": "auctiondb_cli",
+  "version": "1.0.0",
+  "description": "Auction Items Management CLI",
+  "main": "src/commands.js",
+  "type": "module",
+  "preferGlobal": true,
+  "bin": "./src/commands.js",
+  "scripts": {
+    "start": "node src/commands.js",
+    "seed": "node src/commands.js seed",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "comander": "^0.0.1-security",
+    "commander": "^13.1.0",
+    "dotenv": "^16.4.7",
+    "inquirer": "^8.2.5",
+    "mongoose": "^8.13.1"
+  }
+}
