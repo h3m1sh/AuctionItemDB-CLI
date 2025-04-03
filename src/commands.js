@@ -5,10 +5,10 @@ import inquirer from "inquirer";
 import connectDB from "./config/database.js";
 import {
   addAuctionItem,
-  findAuctionItem,
   updateAuctionItem,
   removeAuctionItem,
   listAuctionItems,
+  searchAuctionItems,
 } from "./controllers/auction_item_controller.js";
 import { addQuestions, updateQuestions, removeQuestions } from "./config/questions.js";
 import { seedDatabase } from "./config/seed.js";
@@ -27,21 +27,6 @@ program
       await connectDB();
       const answers = await inquirer.prompt(addQuestions);
       await addAuctionItem(answers);
-    } catch (error) {
-      console.error("Error:", error.message);
-      process.exit(1);
-    }
-  });
-
-// Find Auction Item Command
-program
-  .command("find <title>")
-  .alias("f")
-  .description("Find auction items")
-  .action(async (title) => {
-    try {
-      await connectDB();
-      await findAuctionItem(title);
     } catch (error) {
       console.error("Error:", error.message);
       process.exit(1);
@@ -115,6 +100,21 @@ program
     try {
       await connectDB();
       await seedDatabase();
+    } catch (error) {
+      console.error("Error:", error.message);
+      process.exit(1);
+    }
+  });
+
+// Search Auction Items Command
+program
+  .command("search <keyword>")
+  .alias("s")
+  .description("Search auction items by keyword in title or description")
+  .action(async (keyword) => {
+    try {
+      await connectDB();
+      await searchAuctionItems(keyword);
     } catch (error) {
       console.error("Error:", error.message);
       process.exit(1);
